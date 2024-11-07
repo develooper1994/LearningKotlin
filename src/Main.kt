@@ -169,6 +169,16 @@ fun main(args: Array<String>) {
         println("Hello")
     }
     println()
+    // labeled loop: dışarıdaki etiketli döngüden çıkar. Akış dış döngünün sonuna gelir.
+    outer@ for (i in 1..3) {
+    for (j in 1..3) {
+        if (i == 2 && j == 2) {
+            break@outer // outer döngüsünü sonlandırır
+           }
+            println("i: $i, j: $j")
+        }
+    }
+    println()
 
     val sizes = arrayOf("byte", "kilobyte", "megabyte", "gigabyte", "terabyte", "petabyte", "exabyte")
     val array = Array(sizes.size) {1000.0.pow(it)}
@@ -198,9 +208,11 @@ fun main(args: Array<String>) {
     println("filter: " + numbers2.filter{ it > 3})
     println("map: " + numbers2.map{ it * 3})
     numbers2.forEach { print("$it, ") }
+    println()
     println("find: " + numbers2.find { it > 4 })
     println("sorted: " + numbers2.sorted())
     println("sortedDescending: " + numbers2.sortedDescending())
+
 
 
 
